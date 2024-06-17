@@ -34,7 +34,7 @@ const fetchProfile=async ()=>{
 const handleUserUpdate=async ()=>{
   setUpdated(false)
   try{
-    const res=await axios.put(URL+"/api/users/"+user._id,{username,email,password},{withCredentials:true})
+    const res=await axios.put(URL+"/api/users/"+user._id,{username,email,password})
     // console.log(res.data)
     setUpdated(true)
 
@@ -48,7 +48,7 @@ const handleUserUpdate=async ()=>{
 
 const handleUserDelete=async()=>{
   try{
-    const res=await axios.delete(URL+"/api/users/"+user._id,{withCredentials:true})
+    const res=await axios.delete(URL+"/api/users/"+user._id)
     setUser(null)
     navigate("/")
     // console.log(res.data)

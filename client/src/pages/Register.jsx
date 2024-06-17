@@ -22,7 +22,7 @@ const Register = () => {
       setEmail(res.data.email)
       setPassword(res.data.password)
       setError(false)
-      navigate("/login");
+      navigate("/");
       toast.success('Account Created Successfully!', {
         position: "top-right",
       closeOnClick : true});      

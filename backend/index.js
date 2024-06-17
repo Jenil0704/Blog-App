@@ -30,7 +30,7 @@ dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
 // app.use(cors({origin : process.env.VITE_URL, credentials:true}))
-app.use(cors({credentials:true}))
+app.use(cors());
 
 app.use(cookieParser())
 app.use("/api/auth",authRoute)

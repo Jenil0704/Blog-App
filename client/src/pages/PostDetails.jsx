@@ -36,7 +36,7 @@ const PostDetails = () => {
   const handleDeletePost=async ()=>{
 
     try{
-      const res=await axios.delete(URL+"/api/posts/"+postId,{withCredentials:true})
+      const res=await axios.delete(URL+"/api/posts/"+postId)
       console.log(res.data)
       navigate("/")
 
@@ -75,8 +75,7 @@ const PostDetails = () => {
     e.preventDefault()
     try{
       const res=await axios.post(URL+"/api/comments/create",
-      {comment:comment,author:user.username,postId:postId,userId:user._id},
-      {withCredentials:true})
+      {comment:comment,author:user.username,postId:postId,userId:user._id})
       
       // fetchPostComments()
       // setComment("")
