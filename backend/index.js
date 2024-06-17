@@ -10,6 +10,7 @@ const authRoute=require('./routes/auth')
 const userRoute=require('./routes/users')
 const postRoute=require('./routes/posts')
 const commentRoute=require('./routes/comments')
+const path = require('path');
 
 //database
 const connectDB=async()=>{
@@ -29,12 +30,16 @@ const connectDB=async()=>{
 dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
-app.use(cors({origin : process.env.VITE_URL, credentials:true}))
+// app.use(cors({origin : process.env.VITE_URL, credentials:true}))
+app.use(cors({credentials:true}))
+
 app.use(cookieParser())
 app.use("/api/auth",authRoute)
 app.use("/api/users",userRoute)
 app.use("/api/posts",postRoute)
 app.use("/api/comments",commentRoute)
+
+
 
 //image upload
 const storage=multer.diskStorage({
